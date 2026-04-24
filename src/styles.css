@@ -151,5 +151,44 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .font-serif {
+    font-family: var(--font-serif);
+    font-feature-settings: "liga", "dlig";
+  }
+
+  .font-sans {
+    font-family: var(--font-sans);
   }
 }
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+  .bg-gradient-editorial { background: var(--gradient-editorial); }
+  .bg-gradient-warm { background: var(--gradient-warm); }
+  .shadow-editorial { box-shadow: var(--shadow-editorial); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .bg-paper { background-color: var(--paper); }
+  .bg-ink { background-color: var(--ink); }
+  .text-ink { color: var(--ink); }
+  .border-rule { border-color: var(--rule); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up { animation: fade-up 0.7s ease-out both; }
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.animate-pulse-soft { animation: pulse-soft 2.4s ease-in-out infinite; }
