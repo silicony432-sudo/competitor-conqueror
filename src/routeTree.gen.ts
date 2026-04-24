@@ -9,8 +9,70 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SalesIntelligenceSoftwareRouteImport } from './routes/sales-intelligence-software'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
+import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as PredictiveLeadGenerationRouteImport } from './routes/predictive-lead-generation'
+import { Route as PlatformRouteImport } from './routes/platform'
+import { Route as AlternativeToZoominfoRouteImport } from './routes/alternative-to-zoominfo'
+import { Route as AlternativeToClearbitRouteImport } from './routes/alternative-to-clearbit'
+import { Route as AlternativeToApolloRouteImport } from './routes/alternative-to-apollo'
+import { Route as AlternativeTo6senseRouteImport } from './routes/alternative-to-6sense'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SalesIntelligenceSoftwareRoute =
+  SalesIntelligenceSoftwareRouteImport.update({
+    id: '/sales-intelligence-software',
+    path: '/sales-intelligence-software',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PredictiveLeadGenerationRoute =
+  PredictiveLeadGenerationRouteImport.update({
+    id: '/predictive-lead-generation',
+    path: '/predictive-lead-generation',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PlatformRoute = PlatformRouteImport.update({
+  id: '/platform',
+  path: '/platform',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlternativeToZoominfoRoute = AlternativeToZoominfoRouteImport.update({
+  id: '/alternative-to-zoominfo',
+  path: '/alternative-to-zoominfo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlternativeToClearbitRoute = AlternativeToClearbitRouteImport.update({
+  id: '/alternative-to-clearbit',
+  path: '/alternative-to-clearbit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlternativeToApolloRoute = AlternativeToApolloRouteImport.update({
+  id: '/alternative-to-apollo',
+  path: '/alternative-to-apollo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlternativeTo6senseRoute = AlternativeTo6senseRouteImport.update({
+  id: '/alternative-to-6sense',
+  path: '/alternative-to-6sense',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +81,172 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/alternative-to-6sense': typeof AlternativeTo6senseRoute
+  '/alternative-to-apollo': typeof AlternativeToApolloRoute
+  '/alternative-to-clearbit': typeof AlternativeToClearbitRoute
+  '/alternative-to-zoominfo': typeof AlternativeToZoominfoRoute
+  '/platform': typeof PlatformRoute
+  '/predictive-lead-generation': typeof PredictiveLeadGenerationRoute
+  '/pricing': typeof PricingRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sales-intelligence-software': typeof SalesIntelligenceSoftwareRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/alternative-to-6sense': typeof AlternativeTo6senseRoute
+  '/alternative-to-apollo': typeof AlternativeToApolloRoute
+  '/alternative-to-clearbit': typeof AlternativeToClearbitRoute
+  '/alternative-to-zoominfo': typeof AlternativeToZoominfoRoute
+  '/platform': typeof PlatformRoute
+  '/predictive-lead-generation': typeof PredictiveLeadGenerationRoute
+  '/pricing': typeof PricingRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sales-intelligence-software': typeof SalesIntelligenceSoftwareRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/alternative-to-6sense': typeof AlternativeTo6senseRoute
+  '/alternative-to-apollo': typeof AlternativeToApolloRoute
+  '/alternative-to-clearbit': typeof AlternativeToClearbitRoute
+  '/alternative-to-zoominfo': typeof AlternativeToZoominfoRoute
+  '/platform': typeof PlatformRoute
+  '/predictive-lead-generation': typeof PredictiveLeadGenerationRoute
+  '/pricing': typeof PricingRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sales-intelligence-software': typeof SalesIntelligenceSoftwareRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/alternative-to-6sense'
+    | '/alternative-to-apollo'
+    | '/alternative-to-clearbit'
+    | '/alternative-to-zoominfo'
+    | '/platform'
+    | '/predictive-lead-generation'
+    | '/pricing'
+    | '/robots.txt'
+    | '/sales-intelligence-software'
+    | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/alternative-to-6sense'
+    | '/alternative-to-apollo'
+    | '/alternative-to-clearbit'
+    | '/alternative-to-zoominfo'
+    | '/platform'
+    | '/predictive-lead-generation'
+    | '/pricing'
+    | '/robots.txt'
+    | '/sales-intelligence-software'
+    | '/sitemap.xml'
+  id:
+    | '__root__'
+    | '/'
+    | '/alternative-to-6sense'
+    | '/alternative-to-apollo'
+    | '/alternative-to-clearbit'
+    | '/alternative-to-zoominfo'
+    | '/platform'
+    | '/predictive-lead-generation'
+    | '/pricing'
+    | '/robots.txt'
+    | '/sales-intelligence-software'
+    | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AlternativeTo6senseRoute: typeof AlternativeTo6senseRoute
+  AlternativeToApolloRoute: typeof AlternativeToApolloRoute
+  AlternativeToClearbitRoute: typeof AlternativeToClearbitRoute
+  AlternativeToZoominfoRoute: typeof AlternativeToZoominfoRoute
+  PlatformRoute: typeof PlatformRoute
+  PredictiveLeadGenerationRoute: typeof PredictiveLeadGenerationRoute
+  PricingRoute: typeof PricingRoute
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
+  SalesIntelligenceSoftwareRoute: typeof SalesIntelligenceSoftwareRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sales-intelligence-software': {
+      id: '/sales-intelligence-software'
+      path: '/sales-intelligence-software'
+      fullPath: '/sales-intelligence-software'
+      preLoaderRoute: typeof SalesIntelligenceSoftwareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/predictive-lead-generation': {
+      id: '/predictive-lead-generation'
+      path: '/predictive-lead-generation'
+      fullPath: '/predictive-lead-generation'
+      preLoaderRoute: typeof PredictiveLeadGenerationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/platform': {
+      id: '/platform'
+      path: '/platform'
+      fullPath: '/platform'
+      preLoaderRoute: typeof PlatformRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/alternative-to-zoominfo': {
+      id: '/alternative-to-zoominfo'
+      path: '/alternative-to-zoominfo'
+      fullPath: '/alternative-to-zoominfo'
+      preLoaderRoute: typeof AlternativeToZoominfoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/alternative-to-clearbit': {
+      id: '/alternative-to-clearbit'
+      path: '/alternative-to-clearbit'
+      fullPath: '/alternative-to-clearbit'
+      preLoaderRoute: typeof AlternativeToClearbitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/alternative-to-apollo': {
+      id: '/alternative-to-apollo'
+      path: '/alternative-to-apollo'
+      fullPath: '/alternative-to-apollo'
+      preLoaderRoute: typeof AlternativeToApolloRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/alternative-to-6sense': {
+      id: '/alternative-to-6sense'
+      path: '/alternative-to-6sense'
+      fullPath: '/alternative-to-6sense'
+      preLoaderRoute: typeof AlternativeTo6senseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +259,16 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AlternativeTo6senseRoute: AlternativeTo6senseRoute,
+  AlternativeToApolloRoute: AlternativeToApolloRoute,
+  AlternativeToClearbitRoute: AlternativeToClearbitRoute,
+  AlternativeToZoominfoRoute: AlternativeToZoominfoRoute,
+  PlatformRoute: PlatformRoute,
+  PredictiveLeadGenerationRoute: PredictiveLeadGenerationRoute,
+  PricingRoute: PricingRoute,
+  RobotsDottxtRoute: RobotsDottxtRoute,
+  SalesIntelligenceSoftwareRoute: SalesIntelligenceSoftwareRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
