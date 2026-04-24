@@ -10,10 +10,10 @@ export function SiteFooter() {
               <span className="inline-block h-2 w-2 rounded-full bg-accent" />
               <span className="font-serif text-3xl">Liner</span>
             </div>
-            <p className="mt-4 max-w-md font-serif text-lg italic text-paper/70">
+            <p className="mt-4 max-w-md font-serif text-lg italic text-paper/90">
               Editorial intelligence for the new economy.
             </p>
-            <p className="mt-6 text-sm text-paper/50">
+            <p className="mt-6 text-sm text-paper/75">
               Liner is the AI predictive lead generation and sales intelligence
               platform from Tyora. We help revenue teams discover buying intent
               before competitors do.
@@ -21,31 +21,31 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h4 className="text-xs uppercase tracking-widest text-paper/50">
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-accent">
               Platform
             </h4>
-            <ul className="mt-4 space-y-3 text-sm">
-              <li><Link to="/platform" className="hover:text-accent">Capabilities</Link></li>
-              <li><Link to="/predictive-lead-generation" className="hover:text-accent">Predictive Leads</Link></li>
-              <li><Link to="/sales-intelligence-software" className="hover:text-accent">Sales Intelligence</Link></li>
-              <li><Link to="/pricing" className="hover:text-accent">Pricing</Link></li>
+            <ul className="mt-4 space-y-3 text-sm text-paper/85">
+              <li><Link to="/platform" className="transition-colors hover:text-accent">Capabilities</Link></li>
+              <li><Link to="/predictive-lead-generation" className="transition-colors hover:text-accent">Predictive Leads</Link></li>
+              <li><Link to="/sales-intelligence-software" className="transition-colors hover:text-accent">Sales Intelligence</Link></li>
+              <li><Link to="/pricing" className="transition-colors hover:text-accent">Pricing</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-xs uppercase tracking-widest text-paper/50">
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-accent">
               Compare
             </h4>
-            <ul className="mt-4 space-y-3 text-sm">
-              <li><Link to="/alternative-to-zoominfo" className="hover:text-accent">Alternative to ZoomInfo</Link></li>
-              <li><Link to="/alternative-to-apollo" className="hover:text-accent">Alternative to Apollo.io</Link></li>
-              <li><Link to="/alternative-to-clearbit" className="hover:text-accent">Alternative to Clearbit</Link></li>
-              <li><Link to="/alternative-to-6sense" className="hover:text-accent">Alternative to 6sense</Link></li>
+            <ul className="mt-4 space-y-3 text-sm text-paper/85">
+              <li><Link to="/alternative-to-zoominfo" className="transition-colors hover:text-accent">Alternative to ZoomInfo</Link></li>
+              <li><Link to="/alternative-to-apollo" className="transition-colors hover:text-accent">Alternative to Apollo.io</Link></li>
+              <li><Link to="/alternative-to-clearbit" className="transition-colors hover:text-accent">Alternative to Clearbit</Link></li>
+              <li><Link to="/alternative-to-6sense" className="transition-colors hover:text-accent">Alternative to 6sense</Link></li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-paper/10 pt-8 text-xs text-paper/50 md:flex-row md:items-center">
+        <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-paper/20 pt-8 text-xs text-paper/70 md:flex-row md:items-center">
           <p>© {new Date().getFullYear()} Tyora. Liner predictive lead generation platform.</p>
           <p>Axiom B6 buying intent engine</p>
         </div>
