@@ -63,25 +63,36 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  /* Editorial cream + forest green palette */
+  --background: oklch(0.985 0.008 85);          /* #FDFBF7 cream */
+  --foreground: oklch(0.275 0.035 165);         /* #1A3026 deep forest */
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
+  --card-foreground: oklch(0.275 0.035 165);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.275 0.035 165);
+  --primary: oklch(0.275 0.035 165);            /* deep forest */
+  --primary-foreground: oklch(0.985 0.008 85);
+  --secondary: oklch(0.94 0.015 85);            /* warm sand */
+  --secondary-foreground: oklch(0.275 0.035 165);
+  --muted: oklch(0.94 0.015 85);
+  --muted-foreground: oklch(0.45 0.025 165);
+  --accent: oklch(0.72 0.14 60);                /* warm amber */
+  --accent-foreground: oklch(0.985 0.008 85);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --border: oklch(0.88 0.018 85);
+  --input: oklch(0.88 0.018 85);
+  --ring: oklch(0.45 0.04 165);
+  /* Editorial extras */
+  --ink: oklch(0.18 0.02 165);
+  --paper: oklch(1 0.005 85);
+  --rule: oklch(0.78 0.02 85);
+  --gradient-editorial: linear-gradient(135deg, oklch(0.275 0.035 165), oklch(0.18 0.02 165));
+  --gradient-warm: linear-gradient(135deg, oklch(0.985 0.008 85), oklch(0.94 0.015 85));
+  --shadow-editorial: 0 30px 60px -30px oklch(0.275 0.035 165 / 0.25);
+  --shadow-soft: 0 8px 24px -12px oklch(0.275 0.035 165 / 0.15);
+  --font-serif: "Noto Serif", "Source Serif Pro", Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
