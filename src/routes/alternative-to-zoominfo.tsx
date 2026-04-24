@@ -1,10 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MarketingPage } from "@/components/marketing-page";
 import heroImage from "@/assets/hero-dashboard.jpg";
+import { comparisonItemList, softwareApplication } from "@/lib/structured-data";
 
 const TITLE = "The Best ZoomInfo Alternative in 2026 — Liner";
 const DESCRIPTION =
   "Looking for a ZoomInfo alternative? Liner replaces static contact databases with predictive lead generation, real-time buying intent and autonomous outreach — at a fraction of the cost.";
+const URL = "https://liner.ai/alternative-to-zoominfo";
+const ROWS: [string, string, string][] = [
+  ["Core data model", "Static contact database", "Predictive opportunity graph"],
+  ["Intent signals", "Bombora-licensed topic data", "Editorial + market signal fusion"],
+  ["Refresh cadence", "Quarterly enrichment", "Real-time signal pipeline"],
+  ["Outreach", "Engage add-on, manual sequences", "Autonomous, on-brand drafts included"],
+  ["Pricing model", "Seat-based, $15K+ minimums", "Usage-aligned, transparent tiers"],
+  ["Time to value", "6–12 weeks onboarding", "Same-week activation"],
+  ["GDPR / data ethics", "Scraped contact compliance flags", "Editorial-source first, opt-in friendly"],
+];
 
 export const Route = createFileRoute("/alternative-to-zoominfo")({
   head: () => ({
@@ -19,7 +30,7 @@ export const Route = createFileRoute("/alternative-to-zoominfo")({
       { name: "twitter:description", content: DESCRIPTION },
       { name: "twitter:image", content: heroImage },
     ],
-    links: [{ rel: "canonical", href: "https://liner.ai/alternative-to-zoominfo" }],
+    links: [{ rel: "canonical", href: URL }],
     scripts: [
       {
         type: "application/ld+json",
@@ -33,6 +44,29 @@ export const Route = createFileRoute("/alternative-to-zoominfo")({
           ],
         }),
       },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(comparisonItemList({ name: "Liner vs ZoomInfo — Capability comparison", url: URL, competitorName: "ZoomInfo", rows: ROWS })),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(softwareApplication({ name: "Liner", url: URL, description: DESCRIPTION, image: heroImage })),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          name: "How to migrate from ZoomInfo to Liner",
+          description: "Switch your sales intelligence stack from ZoomInfo to Liner in under a week with concierge migration.",
+          step: [
+            { "@type": "HowToStep", position: 1, name: "Join the waitlist", text: "Submit your work email to reserve concierge migration for the first 100 ZoomInfo switchers." },
+            { "@type": "HowToStep", position: 2, name: "Export your saved searches and lists", text: "Use ZoomInfo's standard CSV export to download your saved searches, lists and contact data." },
+            { "@type": "HowToStep", position: 3, name: "Import into Liner", text: "Liner's migration team maps your ZoomInfo segments to predictive opportunity views inside Liner." },
+            { "@type": "HowToStep", position: 4, name: "Activate predictive signals", text: "Connect your CRM and turn on the editorial + market signal pipeline to start receiving real-time intent." },
+          ],
+        }),
+      },
     ],
   }),
   component: () => (
@@ -41,15 +75,7 @@ export const Route = createFileRoute("/alternative-to-zoominfo")({
       title={<>The intelligent <em>alternative to ZoomInfo</em>.</>}
       intro="ZoomInfo sells contacts. Liner predicts deals. See why revenue teams are migrating from ZoomInfo to Liner for predictive lead generation and real-time buying intent."
       competitorName="ZoomInfo"
-      comparisonRows={[
-        ["Core data model", "Static contact database", "Predictive opportunity graph"],
-        ["Intent signals", "Bombora-licensed topic data", "Editorial + market signal fusion"],
-        ["Refresh cadence", "Quarterly enrichment", "Real-time signal pipeline"],
-        ["Outreach", "Engage add-on, manual sequences", "Autonomous, on-brand drafts included"],
-        ["Pricing model", "Seat-based, $15K+ minimums", "Usage-aligned, transparent tiers"],
-        ["Time to value", "6–12 weeks onboarding", "Same-week activation"],
-        ["GDPR / data ethics", "Scraped contact compliance flags", "Editorial-source first, opt-in friendly"],
-      ]}
+      comparisonRows={ROWS}
       sections={[
         {
           heading: "Why teams replace ZoomInfo with Liner",
