@@ -12,13 +12,13 @@ export function SiteFooter() {
               <span className="inline-block h-2.5 w-2.5 rounded-full bg-accent shadow-[0_0_18px_var(--accent)]" />
               <span className="font-serif text-3xl tracking-tight">Liner</span>
             </div>
-            <p className="mt-4 max-w-md font-serif text-lg italic text-paper/90">
+            <p className="mt-4 max-w-md font-serif text-lg italic text-paper">
               Editorial intelligence for the new economy.
             </p>
-            <p className="mt-6 max-w-md text-sm leading-relaxed text-paper/80">
-              Liner is the AI predictive lead generation and sales intelligence
-              platform from Tyora. We help revenue teams discover buying intent
-              before competitors do.
+            <p className="mt-6 max-w-md text-sm leading-relaxed text-paper/95">
+              Liner is the upcoming AI predictive lead generation and sales
+              intelligence platform from Tyora. Currently in stealth — join the
+              waitlist to be first when we launch.
             </p>
           </div>
 
@@ -48,7 +48,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-20 h-px w-full bg-gradient-to-r from-transparent via-paper/40 to-transparent" />
-        <div className="mt-8 flex flex-col items-start justify-between gap-4 text-xs text-paper/85 md:flex-row md:items-center">
+        <div className="mt-8 flex flex-col items-start justify-between gap-4 text-xs text-paper md:flex-row md:items-center">
           <p>© {new Date().getFullYear()} Tyora. Liner predictive lead generation platform.</p>
           <p className="inline-flex items-center gap-2">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent animate-pulse-soft" />
