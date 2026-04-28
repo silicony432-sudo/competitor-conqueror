@@ -226,7 +226,7 @@
     position: relative;
     display: inline-block;
     color: var(--paper);
-    opacity: 0.92;
+    opacity: 1;
     transition: color 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
   }
   .footer-link::after {
