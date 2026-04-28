@@ -295,7 +295,9 @@ export function IntelMapWidget() {
               return (
                 <button
                   key={b.id}
-                  ref={(el) => (pinRefs.current[b.id] = el)}
+                  ref={(el) => {
+                    pinRefs.current[b.id] = el;
+                  }}
                   role="option"
                   aria-selected={isActive}
                   tabIndex={isActive ? 0 : -1}
