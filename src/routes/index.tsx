@@ -80,14 +80,14 @@ function Index() {
               </div>
             </div>
 
-            <div className="relative mx-auto mt-20 max-w-5xl">
+            <div className="perspective-1000 relative mx-auto mt-20 max-w-5xl">
               <div className="absolute inset-0 -z-10 translate-y-8 scale-95 bg-gradient-editorial opacity-20 blur-3xl" />
               <img
                 src={heroImage}
                 alt="Liner predictive sales intelligence dashboard visualizing buying intent signals"
                 width={1600}
                 height={1024}
-                className="rounded-3xl border border-rule shadow-editorial"
+                className="tilt-3d animate-float-3d rounded-3xl border border-rule shadow-editorial"
               />
             </div>
 
@@ -159,7 +159,7 @@ function Index() {
               { i: Zap, t: "CRM-Native", d: "Push enriched opportunities directly into Salesforce, HubSpot or Attio." },
               { i: Sparkles, t: "Editorial Briefings", d: "Daily intelligence briefs written for revenue teams who think like operators." },
             ].map((f) => (
-              <div key={f.t} className="group rounded-3xl border border-rule bg-paper p-8 transition-all hover:shadow-soft">
+              <div key={f.t} className="lift-3d group rounded-3xl border border-rule bg-paper p-8 shadow-soft">
                 <f.i className="h-7 w-7 text-accent" />
                 <h3 className="mt-6 font-serif text-2xl">{f.t}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.d}</p>
