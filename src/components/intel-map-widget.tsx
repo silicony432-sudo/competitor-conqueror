@@ -1,13 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import {
-  MapContainer,
-  TileLayer,
-  CircleMarker,
-  Tooltip,
-  useMap,
-} from "react-leaflet";
-import "leaflet/dist/leaflet.css";
 import { CheckCircle2, Mail, Phone, ShieldCheck, Sparkles, Briefcase, MapPin } from "lucide-react";
+
+// Lazy import react-leaflet & leaflet CSS only on the client
+type LeafletExports = typeof import("react-leaflet");
 
 type Business = {
   id: string;
@@ -104,10 +99,8 @@ const BUSINESSES: Business[] = [
 ];
 
 function MapFlyTo({ target }: { target: Business | null }) {
-  const map = useMap();
-  useEffect(() => {
-    if (target) map.flyTo([target.lat, target.lng], 6, { duration: 1.6 });
-  }, [target, map]);
+  // Replaced by inline component once leaflet is loaded
+  void target;
   return null;
 }
 
@@ -123,6 +116,21 @@ export function IntelMapWidget() {
   const [stage, setStage] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
   const idxRef = useRef(0);
+  const [RL, setRL] = useState<LeafletExports | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    Promise.all([
+      import("react-leaflet"),
+      // @ts-expect-error - css side-effect
+      import("leaflet/dist/leaflet.css"),
+    ]).then(([mod]) => {
+      if (!cancelled) setRL(mod as LeafletExports);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const active = useMemo(
     () => BUSINESSES.find((b) => b.id === activeId) ?? BUSINESSES[0],
@@ -185,48 +193,16 @@ export function IntelMapWidget() {
       <div className="grid md:grid-cols-5">
         {/* Map */}
         <div className="relative h-[420px] md:col-span-3 md:h-[520px]">
-          <MapContainer
-            center={[39.5, -98]}
-            zoom={4}
-            scrollWheelZoom={false}
-            zoomControl={false}
-            attributionControl={false}
-            style={{ height: "100%", width: "100%", background: "#0e1f1a" }}
-          >
-            <TileLayer
-              url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-              subdomains={["a", "b", "c", "d"]}
-            />
-            <MapFlyTo target={active} />
-            {BUSINESSES.map((b) => {
-              const isActive = b.id === activeId;
-              return (
-                <CircleMarker
-                  key={b.id}
-                  center={[b.lat, b.lng]}
-                  radius={isActive ? 11 : 7}
-                  pathOptions={{
-                    color: isActive ? "#f0a85c" : "#fdfbf7",
-                    weight: 2,
-                    fillColor: isActive ? "#f0a85c" : "#9bb1a8",
-                    fillOpacity: isActive ? 0.95 : 0.6,
-                  }}
-                  eventHandlers={{ click: () => onPinClick(b) }}
-                >
-                  <Tooltip direction="top" offset={[0, -8]} opacity={1} className="!rounded-md">
-                    <span className="font-medium">{b.name}</span> · {b.city}
-                  </Tooltip>
-                </CircleMarker>
-              );
-            })}
-          </MapContainer>
-
-          {/* Radar pulse over active pin (decorative) */}
-          <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-            <div className="relative h-3 w-3 opacity-0">
-              {/* placeholder for centering only */}
+          {RL ? (
+            <LiveMap RL={RL} active={active} activeId={activeId} onPinClick={onPinClick} />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center bg-[#0e1f1a] text-paper/60">
+              <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em]">
+                <span className="inline-block h-2 w-2 animate-pulse-soft rounded-full bg-accent" />
+                Loading map…
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Legend */}
           <div className="pointer-events-none absolute bottom-3 left-3 rounded-md border border-paper/15 bg-ink/70 px-3 py-2 text-[10px] uppercase tracking-[0.2em] text-paper/85">
@@ -243,6 +219,66 @@ export function IntelMapWidget() {
         </div>
       </div>
     </div>
+  );
+}
+
+function LiveMap({
+  RL,
+  active,
+  activeId,
+  onPinClick,
+}: {
+  RL: LeafletExports;
+  active: Business;
+  activeId: string;
+  onPinClick: (b: Business) => void;
+}) {
+  const { MapContainer, TileLayer, CircleMarker, Tooltip, useMap } = RL;
+
+  function FlyTo({ target }: { target: Business }) {
+    const map = useMap();
+    useEffect(() => {
+      map.flyTo([target.lat, target.lng], 6, { duration: 1.6 });
+    }, [target, map]);
+    return null;
+  }
+
+  return (
+    <MapContainer
+      center={[39.5, -98]}
+      zoom={4}
+      scrollWheelZoom={false}
+      zoomControl={false}
+      attributionControl={false}
+      style={{ height: "100%", width: "100%", background: "#0e1f1a" }}
+    >
+      <TileLayer
+        url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+        subdomains={["a", "b", "c", "d"]}
+      />
+      <FlyTo target={active} />
+      {BUSINESSES.map((b) => {
+        const isActive = b.id === activeId;
+        return (
+          <CircleMarker
+            key={b.id}
+            center={[b.lat, b.lng]}
+            radius={isActive ? 11 : 7}
+            pathOptions={{
+              color: isActive ? "#f0a85c" : "#fdfbf7",
+              weight: 2,
+              fillColor: isActive ? "#f0a85c" : "#9bb1a8",
+              fillOpacity: isActive ? 0.95 : 0.6,
+            }}
+            eventHandlers={{ click: () => onPinClick(b) }}
+          >
+            <Tooltip direction="top" offset={[0, -8]} opacity={1}>
+              <span style={{ fontWeight: 500 }}>{b.name}</span> · {b.city}
+            </Tooltip>
+          </CircleMarker>
+        );
+      })}
+    </MapContainer>
   );
 }
 
