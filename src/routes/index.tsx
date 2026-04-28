@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Sparkles, Radar, Send, LineChart, Target, Zap } from "lucide-react";
+import { ArrowRight, Sparkles, Radar, Send, LineChart, Target, Zap, Search, ShieldCheck, UserCheck, Briefcase } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WaitlistForm } from "@/components/waitlist-form";
@@ -161,6 +161,67 @@ function Index() {
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.d}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* JOB MATCH MODEL */}
+        <section className="bg-paper py-24" aria-labelledby="job-model-heading">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="mb-14 max-w-2xl">
+              <p className="text-xs uppercase tracking-[0.2em] text-accent">04 · Job-match model</p>
+              <h2 id="job-model-heading" className="mt-4 font-serif text-4xl leading-tight md:text-5xl">
+                How Liner will find valid jobs for you.
+              </h2>
+              <p className="mt-4 text-muted-foreground">
+                A five-stage pipeline blending verified market signals with your profile to surface roles you can actually win — not noisy listings.
+              </p>
+            </div>
+
+            <ol className="grid gap-4 md:grid-cols-5">
+              {[
+                { i: Search, t: "Discover", d: "Scan 1,200+ sources for hiring waves, funding, and team expansions." },
+                { i: ShieldCheck, t: "Verify", d: "Cross-check the role against registries, web & licensed signal sources." },
+                { i: UserCheck, t: "Profile fit", d: "Match the role to your skills, history & trajectory using on-device profile vectors." },
+                { i: Sparkles, t: "Score", d: "Rank by job-fit probability, recency, and likelihood of a reply." },
+                { i: Briefcase, t: "Apply", d: "Auto-draft a tailored intro to the verified hiring contact — ready to send." },
+              ].map((s, i) => (
+                <li
+                  key={s.t}
+                  className="lift-3d relative rounded-2xl border border-rule bg-background p-5"
+                >
+                  <div className="mb-3 flex items-center justify-between">
+                    <s.i className="h-5 w-5 text-accent" aria-hidden />
+                    <span className="font-serif text-xs text-muted-foreground">0{i + 1}</span>
+                  </div>
+                  <h3 className="font-serif text-lg">{s.t}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
+                </li>
+              ))}
+            </ol>
+
+            <div className="mt-10 grid gap-4 rounded-2xl border border-accent/30 bg-gradient-to-br from-accent/10 to-transparent p-6 md:grid-cols-3">
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.2em] text-accent">Validation rule</p>
+                <p className="mt-2 font-serif text-xl">Only verified hiring intent</p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  We require ≥2 independent signals (job board + company event or contact) before a role surfaces.
+                </p>
+              </div>
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.2em] text-accent">Reply-likelihood</p>
+                <p className="mt-2 font-serif text-xl">≥ 60% to surface</p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Roles with a low predicted reply rate are filtered out — we'd rather show fewer, better matches.
+                </p>
+              </div>
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.2em] text-accent">Privacy</p>
+                <p className="mt-2 font-serif text-xl">Your profile stays yours</p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Profile embeddings are computed on-device. We never sell or share your data with third parties.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
