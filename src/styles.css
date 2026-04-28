@@ -192,3 +192,70 @@
 }
 
 .animate-pulse-soft { animation: pulse-soft 2.4s ease-in-out infinite; }
+
+/* ============ 3D dynamic effects ============ */
+@layer utilities {
+  .perspective-1000 { perspective: 1000px; }
+  .preserve-3d { transform-style: preserve-3d; }
+
+  /* Subtle 3D tilt on hover — applies to any element */
+  .tilt-3d {
+    transform: perspective(800px) rotateX(0deg) rotateY(0deg) translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease;
+    will-change: transform;
+  }
+  .tilt-3d:hover {
+    transform: perspective(800px) rotateX(2deg) rotateY(-3deg) translateZ(8px);
+  }
+
+  /* Card lift with depth shadow */
+  .lift-3d {
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+                box-shadow 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform;
+  }
+  .lift-3d:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow:
+      0 30px 60px -25px oklch(0.275 0.035 165 / 0.35),
+      0 12px 24px -12px oklch(0.275 0.035 165 / 0.18);
+  }
+
+  /* Footer link with animated underline + clarity */
+  .footer-link {
+    position: relative;
+    display: inline-block;
+    color: var(--paper);
+    opacity: 0.92;
+    transition: color 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+  }
+  .footer-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 1px;
+    width: 100%;
+    background-color: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .footer-link:hover {
+    color: var(--accent);
+    opacity: 1;
+    transform: translateX(2px);
+  }
+  .footer-link:hover::after { transform: scaleX(1); }
+}
+
+@keyframes float-3d {
+  0%, 100% { transform: translateY(0) rotateX(0) rotateY(0); }
+  50% { transform: translateY(-8px) rotateX(1deg) rotateY(-1deg); }
+}
+.animate-float-3d { animation: float-3d 6s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt-3d, .lift-3d, .footer-link, .animate-float-3d { transition: none; animation: none; }
+  .tilt-3d:hover, .lift-3d:hover { transform: none; }
+}
