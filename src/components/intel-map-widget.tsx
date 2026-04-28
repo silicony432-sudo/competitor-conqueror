@@ -122,8 +122,7 @@ export function IntelMapWidget() {
     let cancelled = false;
     Promise.all([
       import("react-leaflet"),
-      // @ts-expect-error - css side-effect
-      import("leaflet/dist/leaflet.css"),
+      import("leaflet/dist/leaflet.css" as string),
     ]).then(([mod]) => {
       if (!cancelled) setRL(mod as LeafletExports);
     });
