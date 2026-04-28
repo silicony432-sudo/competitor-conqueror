@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { WaitlistForm } from "@/components/waitlist-form";
 import heroImage from "@/assets/hero-dashboard.jpg";
 import { IntelMapWidget } from "@/components/intel-map-widget";
+import { Search, ShieldCheck, UserCheck, Briefcase, Sparkles as SparklesIcon } from "lucide-react";
 
 const TITLE = "Liner — AI Predictive Lead Generation & Sales Intelligence";
 const DESCRIPTION =
