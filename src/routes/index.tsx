@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WaitlistForm } from "@/components/waitlist-form";
 import heroImage from "@/assets/hero-dashboard.jpg";
+import { IntelMapWidget } from "@/components/intel-map-widget";
 
 const TITLE = "Liner — AI Predictive Lead Generation & Sales Intelligence";
 const DESCRIPTION =
@@ -66,13 +67,13 @@ function Index() {
           <div className="mx-auto max-w-6xl px-6 pb-16 pt-20 lg:pt-28">
             <div className="mx-auto max-w-4xl text-center">
               <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-rule bg-paper/60 px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                <Sparkles className="h-3 w-3 text-accent" /> Coming soon · Early access open
+                <Sparkles className="h-3 w-3 text-accent" /> In stealth · Pre-launch waitlist open
               </p>
               <h1 className="font-serif text-5xl leading-[1.05] tracking-tight text-balance md:text-7xl">
-                Predictive lead generation for the<span className="italic"> new economy.</span>
+                A preview of how Liner <span className="italic">will work</span> at launch.
               </h1>
               <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-pretty text-muted-foreground md:text-xl">
-                Liner uses editorial intelligence, buying intent signals and autonomous outreach to surface revenue opportunities <em>before</em> your competitors see them.
+                Liner is still in stealth. The interactive demo below is a concept preview of how our Axiom B6 engine will discover businesses, verify contacts, and help you land roles or close deals — once we launch.
               </p>
 
               <div id="waitlist" className="mt-12 scroll-mt-24">
@@ -80,19 +81,13 @@ function Index() {
               </div>
             </div>
 
-            <div className="perspective-1000 relative mx-auto mt-20 max-w-5xl">
+            <div className="perspective-1000 relative mx-auto mt-20 max-w-6xl">
               <div className="absolute inset-0 -z-10 translate-y-8 scale-95 bg-gradient-editorial opacity-20 blur-3xl" />
-              <img
-                src={heroImage}
-                alt="Liner predictive sales intelligence dashboard visualizing buying intent signals"
-                width={1600}
-                height={1024}
-                className="tilt-3d animate-float-3d rounded-3xl border border-rule shadow-editorial"
-              />
+              <IntelMapWidget />
             </div>
 
             <p className="mt-12 text-center text-xs uppercase tracking-[0.3em] text-muted-foreground">
-              Trusted by revenue teams replacing ZoomInfo, Apollo, Clearbit & 6sense
+              Concept preview · Built as the future alternative to ZoomInfo, Apollo, Clearbit & 6sense
             </p>
           </div>
         </section>
@@ -111,7 +106,7 @@ function Index() {
                 Predictive lead generation uses buying intent signals, market activity and AI analysis to identify potential customers <em>before</em> traditional demand appears.
               </p>
               <p>
-                Liner combines sales intelligence software, AI prospecting and autonomous outreach so revenue teams act earlier — and win deals competitors didn't even know existed.
+                When Liner launches, it will combine sales intelligence, AI prospecting and autonomous outreach so revenue teams act earlier — and win deals competitors don't even know exist yet.
               </p>
               <Link to="/predictive-lead-generation" className="inline-flex items-center gap-2 text-foreground underline-offset-4 hover:underline">
                 Read the full guide <ArrowRight className="h-4 w-4" />
@@ -125,7 +120,8 @@ function Index() {
           <div className="mx-auto max-w-6xl px-6">
             <div className="mb-16 max-w-2xl">
               <p className="text-xs uppercase tracking-[0.2em] text-accent">02 · Method</p>
-              <h2 className="mt-4 font-serif text-4xl leading-tight md:text-5xl">How Liner works</h2>
+              <h2 className="mt-4 font-serif text-4xl leading-tight md:text-5xl">How Liner will work</h2>
+              <p className="mt-4 text-muted-foreground">A preview of the four-stage Axiom B6 pipeline at launch.</p>
             </div>
             <ol className="grid gap-px overflow-hidden rounded-3xl border border-rule bg-rule md:grid-cols-4">
               {[
@@ -148,7 +144,7 @@ function Index() {
         <section className="mx-auto max-w-6xl px-6 py-24">
           <div className="mb-16 max-w-2xl">
             <p className="text-xs uppercase tracking-[0.2em] text-accent">03 · Capabilities</p>
-            <h2 className="mt-4 font-serif text-4xl leading-tight md:text-5xl">A complete revenue intelligence stack.</h2>
+            <h2 className="mt-4 font-serif text-4xl leading-tight md:text-5xl">What you'll get at launch.</h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {[
@@ -174,10 +170,10 @@ function Index() {
             <div className="mb-12 max-w-3xl">
               <p className="text-xs uppercase tracking-[0.2em] text-accent">04 · Comparison</p>
               <h2 className="mt-4 font-serif text-4xl leading-tight md:text-5xl">
-                The intelligent alternative to ZoomInfo, Apollo & Clearbit.
+                Designed as the alternative to ZoomInfo, Apollo & Clearbit.
               </h2>
               <p className="mt-6 text-lg text-muted-foreground">
-                Traditional lead databases store yesterday's contacts. Liner forecasts tomorrow's buyers.
+                Traditional lead databases store yesterday's contacts. Liner is being built to forecast tomorrow's buyers.
               </p>
             </div>
 
@@ -220,13 +216,14 @@ function Index() {
         {/* PULL QUOTES */}
         <section className="mx-auto max-w-5xl px-6 py-32">
           <div className="space-y-16">
+            <p className="text-xs uppercase tracking-[0.2em] text-accent">From early design partners</p>
             <blockquote className="border-l-2 border-accent pl-8 font-serif text-3xl leading-snug md:text-4xl">
-              "Liner is the first sales intelligence tool that shows us deals <em>before</em> they exist in any CRM."
-              <footer className="mt-4 text-sm not-italic text-muted-foreground">— Head of Revenue, Series B SaaS</footer>
+              "If Liner ships what they're previewing, it'll be the first tool that shows us deals <em>before</em> they exist in any CRM."
+              <footer className="mt-4 text-sm not-italic text-muted-foreground">— Head of Revenue, design-partner SaaS (stealth)</footer>
             </blockquote>
             <blockquote className="border-l-2 border-accent pl-8 font-serif text-3xl leading-snug md:text-4xl">
-              "We replaced ZoomInfo and Apollo with Liner. Pipeline quality is up 3x."
-              <footer className="mt-4 text-sm not-italic text-muted-foreground">— VP Sales, Fintech scale-up</footer>
+              "We've been previewing Liner internally — the predictive layer is what ZoomInfo and Apollo never gave us."
+              <footer className="mt-4 text-sm not-italic text-muted-foreground">— VP Sales, fintech design partner</footer>
             </blockquote>
           </div>
         </section>
@@ -242,7 +239,7 @@ function Index() {
                 { q: "Is Liner a ZoomInfo alternative?", a: "Yes. Liner is built as a modern alternative to ZoomInfo, Apollo.io, Clearbit and 6sense. Instead of selling static contact records, we forecast demand." },
                 { q: "Who uses sales intelligence software?", a: "B2B sales teams, RevOps leaders, agencies, consultants and founders running outbound." },
                 { q: "Does Liner integrate with my CRM?", a: "Yes — native integrations with Salesforce, HubSpot and Attio. Push opportunities and intent scores directly into your pipeline." },
-                { q: "When does Liner launch?", a: "Early access opens to waitlist members in waves. Join the waitlist for an invite." },
+                { q: "When does Liner launch?", a: "Liner is currently in stealth. Early access will open to waitlist members in waves once we launch — join the waitlist to get an invite." },
               ].map((f) => (
                 <details key={f.q} className="group py-6">
                   <summary className="flex cursor-pointer items-center justify-between font-serif text-xl">
@@ -260,10 +257,10 @@ function Index() {
         <section className="relative overflow-hidden bg-ink py-32 text-paper">
           <div className="mx-auto max-w-4xl px-6 text-center">
             <h2 className="font-serif text-5xl leading-tight md:text-6xl">
-              Secure your position in the new economy.
+              Be first in line when Liner launches.
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-paper/70">
-              Early access is invitation-only. Join the waitlist to receive a Liner invite and the weekly editorial intelligence briefing.
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-paper/85">
+              Liner is in stealth. Join the waitlist to get an early-access invite at launch — plus the weekly editorial intelligence briefing.
             </p>
             <div className="mt-12">
               <WaitlistForm source="footer" variant="dark" />
